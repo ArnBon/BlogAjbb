@@ -16,7 +16,7 @@
           </a>
           <ul class="treeview-menu">
             <li {{ request()->is('admin/posts') ? 'class=active' : ''}}><a href="{{ route('admin.posts.index') }}"><i class="fa fa-eye"></i>Ver todos los posts</a></li>
-            <li><a href="#"><i class="fa fa-pencil"></i>Crear un post</a></li>
+            <li><a href="{{ 'admin.posts.create' }}"><i class="fa fa-pencil"></i>Crear un post</a></li>
           </ul>
         </li>
       </ul>       
