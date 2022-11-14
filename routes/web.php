@@ -20,6 +20,7 @@ Route::group([
     function(){
        Route::get('/', 'AdminController@index')->name('dashboard'); //video 13 aqui cambiar de home a admin y se le cambia el nombre del controlador de HomeController a AdminController
        Route::get('posts', 'PostsController@index')->name('admin.posts.index'); //video 12
+       Route::get('especialista', 'EspecialistaController@index')->name('especialista.index');
        Route::get('posts/create', 'PostsController@create')->name('admin.posts.create'); //video 14 
     });
 
