@@ -21,8 +21,9 @@ class EspecialistaController extends Controller
     }    
     public function create()
     {
-        $categories = Category::all();
-        $tags = Tag::all();
+        $cargo = Cargo::all();
+        $ubicacion = Ubicacion::all();
+        //y asi con las tablas que tengas relacionadas que tengan que ver con especialistas 
         return view('admin.posts.create', compact('categories', 'tags'));
     }
 
@@ -30,21 +31,22 @@ class EspecialistaController extends Controller
     {
         //return Post::create($request->all());
 
-        $post = new Post;
+        $especialista = new Especialista;
 
-        $post->title        = $request->get('title');
-        $post->body         = $request->get('body');
-        $post->excerpt      = $request->get('excerpt');
-        $post->published_at = Carbon::parse($request->get('published_at'));
-        $post->category_id  = $request->get('category');
-        $post->save();
+        $especialista->title        = $request->get('title');
+        $especialista->body         = $request->get('body');
+        $especialista->excerpt      = $request->get('excerpt');
+        $especialista->published_at = Carbon::parse($request->get('published_at'));
+        $especialista->category_id  = $request->get('category');
+        
+        $especialista->save();
 
         /* luego de guardar el post 
         vamos a asignarle las etiquetas 
         La relacion ya la tenemos definida */
-        $post->tags()->attach($request->get('tags'));
+        $especialista->tags()->attach($request->get('tags'));
 
-        return back()->with('flash', 'Tu publicación ha sido creada !!');
+        return back()->with('flash', 'El Especialista ha sido creado !!');
 
     }
 }
