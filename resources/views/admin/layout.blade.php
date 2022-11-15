@@ -280,6 +280,11 @@ desired effect
       <!--------------------------
         | Your Page Content Here |
         -------------------------->
+        <!--video 17 agregamos la configuración para el mensaje -->
+            @if(session()->has('flash'))
+              <div class="alert alert-success">{{ session('flash') }}</div>
+            @endif
+        <!--fin video 17 -->
         @yield('content')
     </section>
     <!-- /.content -->

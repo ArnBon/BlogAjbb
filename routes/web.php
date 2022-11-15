@@ -22,6 +22,8 @@ Route::group([
        Route::get('posts', 'PostsController@index')->name('admin.posts.index'); //video 12
        Route::get('especialista', 'EspecialistaController@index')->name('especialista.index');
        Route::get('posts/create', 'PostsController@create')->name('admin.posts.create'); //video 14 
+       Route::post('posts', 'PostsController@store')->name('admin.posts.store'); //video 17 
+
     });
 
 
