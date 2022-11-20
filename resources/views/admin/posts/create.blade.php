@@ -33,8 +33,12 @@
 
             <div class="form-group {{ $errors->has('body') ? 'has-error' : '' }}">
               <label>Contenido publicación</label>
+<<<<<<< Updated upstream
               <textarea rows="10" id="editor" name="body" class="form-control" placeholder="Ingresa un extracto de la publicación">{{ old('body') }}</textarea>
                {!! $errors->first('body', '<span class="help-block">:message</span>') !!}
+=======
+              <textarea rows="10" id="editor" name="body" class="form-control" placeholder="Ingresa un extracto de la publicación"></textarea>
+>>>>>>> Stashed changes
             </div>
           </div>
         
@@ -68,9 +72,13 @@
               <select name="category" class="form-control">
                 <option value="">Seleccione una categoría</option>
                 @foreach($categories as $category)
+<<<<<<< Updated upstream
                   <option value="{{ $category->id }}"
                     {{ old('category') == $category->id ? 'selected' : '' }}
                     >{{ $category->name }}</option>
+=======
+                  <option value="{{ $category->id }}">{{ $category->name }}</option>
+>>>>>>> Stashed changes
                 @endforeach
               </select>
               {!! $errors->first('category', '<span class="help-block">:message</span>') !!}
@@ -83,11 +91,15 @@
                     data-placeholder="Selecciona una o mas etiquetas"
                     style="width: 100%;">
                     @foreach($tags as $tag)
+<<<<<<< Updated upstream
                       <option 
                         {{ collect(old('tags'))->contains($tag->id) ? 'selected' : '' }} 
                         value="{{ $tag->id }}">
                         {{ $tag->name }}
                       </option>
+=======
+                      <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+>>>>>>> Stashed changes
                     @endforeach
             </select>
             {!! $errors->first('tags', '<span class="help-block">:message</span>') !!}

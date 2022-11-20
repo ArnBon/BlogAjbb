@@ -7,7 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
    protected $guarded = [];
+<<<<<<< Updated upstream
    protected $dates = ['published_at']; 
+=======
+   protected $dates = ['published_at'];
+>>>>>>> Stashed changes
 
    public function category()
     {

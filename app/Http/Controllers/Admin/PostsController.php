@@ -54,4 +54,26 @@ class PostsController extends Controller
         return back()->with('flash', 'Tu publicación ha sido creada !!');
 
     }
+
+    public function store(Request $request)
+    {
+        //return Post::create($request->all());
+
+        $post = new Post;
+
+        $post->title        = $request->get('title');
+        $post->body         = $request->get('body');
+        $post->excerpt      = $request->get('excerpt');
+        $post->published_at = Carbon::parse($request->get('published_at'));
+        $post->category_id  = $request->get('category');
+        $post->save();
+
+        /* luego de guardar el post 
+        vamos a asignarle las etiquetas 
+        La relacion ya la tenemos definida */
+        $post->tags()->attach($request->get('tags'));
+
+        return back()->with('flash', 'Tu publicación ha sido creada !!');
+
+    }
 }
