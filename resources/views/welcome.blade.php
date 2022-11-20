@@ -13,7 +13,8 @@
 						
 					</div>
 					<div class="post-category">
-						<span class="category text-capitalize">{{ $post->category->name }}</span>
+						
+						<span class="category text-capitalize">{{ $post->category->name }} </span>
 					</div>
 				</header>
 				<h1>{{ $post->title }}</h1>
@@ -21,10 +22,10 @@
 				<p>{{ $post->excerpt }}</p>
 				<footer class="container-flex space-between">
 					<div class="read-more">
-						<a href="#" class="text-uppercase c-green">read more</a>
+						<a href="blog/{{ $post->id }}" class="text-uppercase c-green">Leer más</a> <!--se modifico en el video 20 -->
 					</div>
 					<div class="tags container-flex">
-						@foreach ($post->tags as $tag)
+						@foreach ($post->tags as $tag)						
 						<span class="tag c-gray-1 text-capitalize">#{{ $tag->name }}</span>
 						@endforeach
 					</div>
