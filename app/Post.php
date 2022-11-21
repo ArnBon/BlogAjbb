@@ -21,6 +21,14 @@ class Post extends Model
         return $this->belongsToMany(Tag::class);
     }
 
+   //video 19 Query Scope
+    public function scopePublished($query)
+    {
+        $query->whereNotNull('published_at')
+                           ->where ('published_at', '<=', Carbon::now() )
+                           ->latest('published_at');
+    } 
+
     
 }
 
