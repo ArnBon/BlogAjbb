@@ -12,6 +12,8 @@
 */
 
 Route::get('/', 'PagesController@home');
+// Route::get('blog/{id}', 'PostsController@show'); es el de abajo cambio en el video 21
+Route::get('blog/{post}', 'PostsController@show')->name('posts.show'); //video 21
 
 Route::group([
     'prefix'     => 'admin',
@@ -23,7 +25,9 @@ Route::group([
        Route::get('especialista', 'EspecialistaController@index')->name('especialista.index');
        Route::get('posts/create', 'PostsController@create')->name('admin.posts.create'); //video 14 
        Route::post('posts', 'PostsController@store')->name('admin.posts.store'); //video 17 
-
+       Route::get('posts/{post}', 'PostsController@edit')->name('admin.posts.edit');
+       Route::put('posts/{post}', 'PostsController@update')->name('admin.posts.update'); //video 25
+       Route::post('posts/{post}/photos', 'PhotosController@store')->name('admin.posts.photos.store'); //video 26
     });
 
 
