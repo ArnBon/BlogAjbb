@@ -4,11 +4,29 @@
 @section('content')
 	<section class="posts container">
 		@foreach($posts as $post)
-		<article class="post no-image">
+		<article class="post">
+			<!-- video 29 2do intento -->
+			@if($post->photos->count() === 1)
+				<figure><img src="{{ $post->photos->first()->url }}" alt="" class="img-responsive"></figure>
+				@elseif($post->photos->count() > 1)
+					<div class="gallery-photos masonry">
+						@foreach($post->photos->take(4) as $photo)
+							<figure class="gallery-image">
+								<!--mosca con esto -->
+								@if($loop->iteration === 4)
+								<div class="overlay" style="height: 310px; width:466px">{{ $post->photos->count() }} Fotos...</div>									
+								@endif 
+								<!--fin mosca -->
+								<img src="{{ url($photo->url) }}" class="img-responsive" alt="">
+							</figure>
+						@endforeach
+					</div>
+			@endif			
+			<!--fin video 29 2do intento -->
+			
 			<div class="content-post">
 				<header class="container-flex space-between">
-					<div class="date">
-						{{-- <span class="c-gray-1">{{ $post->published_at->diffForHumans() }}</span> --}}
+					<div class="date">						
 						<span class="c-gray-1">{{ \Carbon\Carbon::parse($post->published_at)->diffForHumans() }}</span> 
 						
 					</div>
@@ -243,6 +261,6 @@
 	</div>
 @stop
 	
-	
+
 </body>
 </html>
